@@ -14,13 +14,13 @@ function YourBotArmy({ enlistedBots, onDischarge }) {
               <br />
               <span>{bot.catchphrase}</span>
               <br />
-              <span>{bot.health}</span>
+              <span className="bott">{bot.health}</span>
               <br />
-              <span>{bot.damage}</span>
+              <span className="bott">{bot.damage}</span>
               <br />
-              <span>{bot.armor}</span>
-              
-             
+              <span className="bott">{bot.armor}</span>
+
+
             </div>
           ))}
           Your Bot Army

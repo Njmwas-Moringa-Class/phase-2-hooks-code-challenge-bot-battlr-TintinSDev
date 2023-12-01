@@ -16,15 +16,15 @@ function BotCollection({ onAddToArmy }) {
     <div className="bot-item">
       <img alt="oh no!" src={bot.avatar_url} onClick={() => onAddToArmy(bot)} />
       <br />
-      <span>{bot.name}</span>
+      <span className="bott">{bot.name}</span>
       <br />
-      <span>{bot.catchphrase}</span>
+      <span className="bott">{bot.catchphrase}</span>
       <br />
-      <span>{bot.health}</span>
+      <span className="bott">{bot.health}</span>
       <br />
-      <span>{bot.damage}</span>
+      <span className="bott">{bot.damage}</span>
       <br />
-      <span>{bot.armor}</span>
+      <span className="bott">{bot.armor}</span>
     </div>
   );
 

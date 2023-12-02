@@ -2,6 +2,10 @@ import React from "react";
 
 function YourBotArmy({ enlistedBots, onDischarge }) {
 
+  // function onDischarge(bot) {
+  //   onDischarge(bot);
+  // }
+  console.log(onDischarge);
   return (
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
@@ -20,7 +24,7 @@ function YourBotArmy({ enlistedBots, onDischarge }) {
               <br />
               <span className="bott">{bot.armor}</span>
 
-
+             
             </div>
           ))}
           Your Bot Army

@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 
-function BotsPage() {
+function BotsPage(deleteBot, bots) {
   //start here with your code for step one
-  const [botCollection, setBotCollection] = useState(/* Your collection of bots */);
+  const [botCollection, setBotCollection] = useState("All");
   const [enlistedBots, setEnlistedBots] = useState([]);
 
   const addToArmy = (bot) => {
@@ -19,8 +19,27 @@ function BotsPage() {
 
   const dischargeForever = (bot) => {
     // Implement backend deletion logic here...
+    fetch(`http://localhost:8002/bots/${bot.id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then(() => setBotCollection(bot));
+<button onClick={handleDeleteBot}>X</button>
+
+
+    function handleDeleteBot(deletedBot) {
+      const updatedBots = bots.filter((bot) => bot.id !== deletedBot.id);
+      setBotCollection(updatedBots);
+
+      if (botCollection === "All") {
+        setBotCollection("All");
+      }
+      
+     
+    }
 
     // Remove the bot from both frontend army and collection
+    
     setEnlistedBots((prevEnlistedBots) => prevEnlistedBots.filter((b) => b.id !== bot.id));
   };
 
@@ -29,7 +48,7 @@ function BotsPage() {
       <YourBotArmy enlistedBots={enlistedBots} onDischarge={dischargeForever} />
       <BotCollection bots={botCollection}
         onAddToArmy={addToArmy}
-        onRelease={releaseFromArmy}/>
+        onRelease={releaseFromArmy} />
     </div>
   )
 }

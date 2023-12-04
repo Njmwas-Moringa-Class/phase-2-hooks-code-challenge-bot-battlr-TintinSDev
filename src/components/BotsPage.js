@@ -24,20 +24,9 @@ function BotsPage(deleteBot, bots) {
     })
       .then((response) => response.json())
       .then(() => setBotCollection(bot));
-<button onClick={handleDeleteBot}>X</button>
 
 
-    function handleDeleteBot(deletedBot) {
-      const updatedBots = bots.filter((bot) => bot.id !== deletedBot.id);
-      setBotCollection(updatedBots);
-
-      if (botCollection === "All") {
-        setBotCollection("All");
-      }
-      
-     
-    }
-
+    
     // Remove the bot from both frontend army and collection
     
     setEnlistedBots((prevEnlistedBots) => prevEnlistedBots.filter((b) => b.id !== bot.id));
